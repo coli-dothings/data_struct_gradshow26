@@ -1,0 +1,12 @@
+EXCEL TODO
+0. Prep formatted sheet
+1. Copy final data to a new formatted sheet
+2. Find & Replace all number formatted as text ('1) to Int (1) in colume: add_count, member_count
+3. In Name colume: Find & Replace all space (remove)
+
+IMAGE FILE TODO
+1. Download all images in 1 folder
+2. Powershell + ffmpeg to remove all spaces in name
+3. Powershell + ffmpeg to convert PNG & JPEG to WEBP
+
+4. If needed, Powershell + ffmpeg to resize all images. Do this step in a seperate folder for PFP and projects

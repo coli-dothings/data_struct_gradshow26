@@ -1,0 +1,23 @@
+// Use Powershell to remove spaces from file name as well as lower case all
+// Then use Powershell + ffmpeg to convert all jpg & png to WEBP
+
+Resize all images (do seperate folder for PFP)
+
+Get-ChildItem *.png | ForEach-Object {
+    ffmpeg -i $_.FullName -vf "scale=800:-1" ".\Resized_Images\$($_.Name)"
+}
+
+
+Copy all resized files to final folder. 
+In re-sized folder, convert to webp
+
+Get-ChildItem *.png | ForEach-Object { ffmpeg -i $_.FullName -c:v libwebp -q:v 95 ("$($_.BaseName).webp") }
+
+
+75 quality is best balance with some artefacts. 50 is very artefact.
+
+Test result:
+Original: 26.2MB
+50: 2.71MB
+75: 3.42MB
+95: 7.96MB (bad!)
