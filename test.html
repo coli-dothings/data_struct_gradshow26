@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move Div Animated</title>
+    <style>
+        /* Test to move a div to middle of PARENT div then return */
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            border-radius: 8px; 
+            position: absolute;
+            top: 10px;
+            left: 20px;
+
+            transition: all 0.6s ease-in-out;
+        }
+        .parent {
+            position: relative;
+            width: 60vw;
+            height: 100vh;
+            border: 2px solid red;
+        }
+        .center {
+            /*  */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="moveToLocation()">Move</button>
+    
+    <div class="parent"><div id="myDiv" class="box"></div></div>
+    
+
+    <script>
+        function moveToLocation() {
+            const div = document.getElementById('myDiv');
+            if (div.classList.contains("center")) {
+                div.classList.remove("center");
+            } else {div.classList.add("center");}
+            
+            
+            // // 1. Get the current absolute position relative to the viewport
+            // // Have target X & Y as parameter of function
+            // const rect = element.getBoundingClientRect();
+            // const currentX = rect.left;
+            // const currentY = rect.top;
+            
+            // // 2. Calculate the distance (delta) needed to reach the target
+            // const deltaX = targetX - currentX;
+            // const deltaY = targetY - currentY;
+            
+            // // 3. Apply the transform translation
+            // element.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+        }
+    </script>
+
+</body>
+</html>
