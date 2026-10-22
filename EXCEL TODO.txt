@@ -5,8 +5,10 @@ EXCEL TODO
 3. In Name colume: Find & Replace all space (remove)
 
 IMAGE FILE TODO
-1. Download all images in 1 folder
-2. Powershell + ffmpeg to remove all spaces in name
-3. Powershell + ffmpeg to convert PNG & JPEG to WEBP
+1. Download all images, keep folders seperate
+2. Powershell to rename all FRONT of file (before the underscore) to PFP, MPT, SPT,... And minor clean up
+3. Copy all files to a singular folder
+4. Powershell to remove all spaces in name & lowercase
+5. Powershell + ffmpeg to convert PNG & JPEG to WEBP
 
-4. If needed, Powershell + ffmpeg to resize all images. Do this step in a seperate folder for PFP and projects
+6. If needed, Powershell + ffmpeg to resize all images. Do this step in a seperate folder for PFP and projects
