@@ -12,7 +12,7 @@
             background-color: #3498db;
             border-radius: 8px; 
             position: absolute;
-            top: 10px;
+            top: 1000px;
             left: 20px;
 
             transition: all 0.6s ease-in-out;
@@ -20,17 +20,19 @@
         .parent {
             position: relative;
             width: 60vw;
-            height: 100vh;
+            height: 3000px;
             border: 2px solid red;
         }
         .center {
-            /*  */
-            top: 50%;
-            left: 50%;
+            position: fixed;
+            top: 50vh;
+            left: 30vw;
             transform: translate(-50%, -50%);
         }
 
         button {
+            position: fixed;
+            z-index: 2;
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
@@ -64,6 +66,9 @@
             
             // // 3. Apply the transform translation
             // element.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+        }
+        function moveAnyCenter() {
+            
         }
     </script>
 
