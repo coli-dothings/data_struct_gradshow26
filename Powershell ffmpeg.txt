@@ -25,6 +25,6 @@ Get-ChildItem *.png | ForEach-Object {
 
 
 Powershell + ffmpeg: Change file to webp
-Get-ChildItem *.png | ForEach-Object { ffmpeg -i $_.FullName -c:v libwebp -q:v 95 ("$($_.BaseName).webp") }
+Get-ChildItem *.png | ForEach-Object { ffmpeg -i $_.FullName -c:v libwebp -q:v 75 ("$($_.BaseName).webp") }
 
 Do this for each file format: png, jpg, jpeg
