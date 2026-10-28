@@ -1,143 +1,158 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Animate Element to Center</title>
     <style>
-        body {
-            height: 200vh;
-        }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .box-container {
+        position: absolute;
+        top: 0;
+        width: 60vw;
+        height: 100%;
+        border: solid blue 2px;
+
+        overflow-x: hidden; /* remove this in final */
+      }
+
+      .filler {
+        height: 2000px;
+      }
+
+      .shell {
+        width: 10vw;
+        aspect-ratio: 1;
+        cursor: pointer;
+        position: absolute;
+        z-index: 2;
+        top: 70vh;
+        border: solid blue 4px;
+
+        /* Crucial: Smooth transition for the transform property */
+        transition: all 1s ease-in;
+      }
+      .bg {
+        position: absolute;
+        background-color: blue;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+
+        transition: all 1s ease-in;
+      }
+      .upper {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        color: white;
+      }
+
+      .marker {
+        width: 10vw;
+        aspect-ratio: 1;
+        border: solid red 2px;
+        position: absolute;
+        top: 70vh;
+      }
+
+      .center {
+        position: fixed;
+        top: 50vh;
+        left: 30vw;
+        transform: translate(-50%, -50%);
+        z-index: 9;
+      }
+      #center-marker {
+        border: solid red 2px;
+        width: 10vw;
+        aspect-ratio: 1;
+        pointer-events: none;
+      }
+
+      @media only screen and (max-width: 787px) {
         .box-container {
-            position: relative;
-            width: 60vw;
-            height: 100%;
-            border: solid blue 2px;
-            overflow: hidden;
-        }
-
-        .shell {
-            width: 10vw;
-            aspect-ratio: 1;
-            cursor: pointer;
-            position: absolute;
-            z-index: 2;
-            top: 1000px;
-            border: solid blue 4px;
-            
-            /* Crucial: Smooth transition for the transform property */
-            transition: all 1s ease-in;
-        }
-        .bg {
-            position: absolute;
-            background-color: blue;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-            
-            transition: all 1s ease-in;
-        }
-        .upper {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            color: white;
-        }
-
-        .marker {
-            width: 10vw;
-            aspect-ratio: 1;
-            border: solid red 2px;
-            position: absolute;
-            top: 1000px;
+          width: 100%;
+          height: 60vh;
         }
 
         .center {
-            position: fixed;
-            top: 50vh;
-            left: 30vw;
-            transform: translate(-50%, -50%);
-            z-index: 9;
+          top: 30vh;
+          left: 50vw;
         }
-        #center-marker {
-            border: solid red 2px;
-            width: 10vw;
-            aspect-ratio: 1;
-            pointer-events: none;
-            
-        }
+      }
 
-        /* .centered {
-            position: fixed;
-        } */
-        .big {
-            transform: scale(10);
-        }
+      .big {
+        transform: scale(10);
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="center" id="center-marker"></div>
 
     <div class="box-container">
-        <div class="shell" id="targetBox">
-            <div class="upper">Move</div>
-            <div class="bg"></div>
-        </div>
-        
-        <div class="marker"></div>
+      <div class="shell" id="targetBox">
+        <div class="upper">Move</div>
+        <div class="bg"></div>
+      </div>
+
+      <div class="marker"></div>
+      <div class="filler"></div>
     </div>
 
     <script>
-        const box = document.getElementById('targetBox');
-        const bg = document.querySelector(".bg");
-        let isCentered = false;
-        const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+      const box = document.getElementById("targetBox");
+      const bg = document.querySelector(".bg");
+      let isCentered = false;
 
-        box.addEventListener('click', move);
+      box.addEventListener("click", move);
 
-        async function move() {
-            if (!isCentered) {
-                isCentered = true;
-                bg.classList.add("big");
-                // 1. Get the current bounding rectangle of the element relative to the viewport
-                const rect = box.getBoundingClientRect();
+      async function move() {
+        if (!isCentered) {
+          console.log(window.innerWidth);
 
-                // 2. Find the element's current center point
-                const elementCenterX = rect.left + rect.width / 2;
-                const elementCenterY = rect.top + rect.height / 2;
+          isCentered = true;
+          bg.classList.add("big");
+          // Get current bounding rectangle of the element relative to the viewport
+          const rect = box.getBoundingClientRect();
 
-                // 3. Find the map-viewport's center point (30vw 50vh)
-                const viewportCenterX = window.innerWidth / 3.3;
-                const viewportCenterY = window.innerHeight / 2;
+          // Find the element's current center point
+          let elementCenterX = rect.left + rect.width / 2;
+          let elementCenterY = rect.top + rect.height / 2;
 
-                // 4. Calculate the required travel distance
-                const translateX = viewportCenterX - elementCenterX;
-                const translateY = viewportCenterY - elementCenterY;
+          let viewportCenterX = 0;
+          let viewportCenterY = 0;
 
-                // 5. Apply the translation
-                // Translation work as follow: The box is not actually moved from its position in doc
-                // When transform translate: XY > 0 => The box will move to new pos
-                // When traslate = 0 it effectively reset & move back to its original pos
-                box.style.transform = `translate(${translateX}px, ${translateY}px)`;
-                console.log (elementCenterX, elementCenterY);
-                console.log ("translate " + translateX, translateY);
+          if (window.innerWidth > 787) {
+            console.log("PC");
+            viewportCenterX = window.innerWidth / 3.3;
+            viewportCenterY = window.innerHeight / 2;
+          } else {
+            console.log("mobile");
+            viewportCenterX = window.innerWidth / 2;
+            viewportCenterY = window.innerHeight / 3.3;
+          }
 
-                // Wait for transition to finish
-                // await wait(1000);
-                // box.classList.add("centered");
-            } else {
-                bg.classList.remove("big");
-                isCentered = false;
-                box.style.transform = "none";
+          // Calc the required travel distance
+          const translateX = viewportCenterX - elementCenterX;
+          const translateY = viewportCenterY - elementCenterY;
 
-                // await wait (1000);
-                // box.classList.remove("centered");
-            }
-            // adding fixed class was not helpful it lowk kinda broke everything dont even try it
+          // Translation work as follow: The box is not actually moved from its position in doc
+          // When transform translate: XY > 0 => The box will move to new pos
+          // When traslate = 0 it effectively reset & move back to its original pos
+          box.style.transform = `translate(${translateX}px, ${translateY}px)`;
+          console.log("translate " + translateX, translateY);
+        } else {
+          bg.classList.remove("big");
+          isCentered = false;
+          box.style.transform = "none";
         }
+      }
     </script>
-
-</body>
+  </body>
 </html>
