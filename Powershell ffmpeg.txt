@@ -8,8 +8,12 @@ Original: 26.2MB
 
 
 
-Powershell: Rename all files in folder:
-Get-ChildItem -File | Rename-Item -NewName { $_.Name -replace '^[^_]+', 'MPT' }
+Powershell: Rename all files in folder before an underscore
+Get-ChildItem -File | Rename-Item -NewName { $_.Name -replace '^[^_]+', 'PFP' }
+
+Powershell: Rename MPT & SPT
+$i = 1; Get-ChildItem -File | Sort-Object Name | ForEach-Object { Rename-Item $_.FullName -NewName ("Project_p{0:D2}$($_.Extension)" -f $i++) }
+
 
 Powershell: Remove all spaces in file name
 Get-ChildItem -File | Rename-Item -NewName { $_.Name -replace ' ', '' }

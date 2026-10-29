@@ -1,14 +1,18 @@
 EXCEL TODO
-0. Prep formatted sheet
-1. Copy final data to a new formatted sheet
-2. Find & Replace all number formatted as text ('1) to Int (1) in colume: add_count, member_count
-3. In Name colume: Find & Replace all space (remove)
+0. Select whole table including header
+-> Custom sort -> Sort by [Name]
+1. Copy final data to a new formatted sheet. Include [Name] in MP & SP
+2. Remove all formatting in colume: add_count, member_count
+3. In [Name] colume: Find & Replace all space (remove)
 
 IMAGE FILE TODO
-1. Download all images, keep folders seperate
-2. Powershell to rename all FRONT of file (before the underscore) to PFP, MPT, SPT,... And minor clean up
+1. Download all images, keep folders seperate. 
+2. Powershell rename all before an underscore to unify format (seperate FOLDERS)
 3. Copy all files to a singular folder
 4. Powershell to remove all spaces in name & lowercase
 5. Powershell + ffmpeg to convert PNG & JPEG to WEBP
 
-6. If needed, Powershell + ffmpeg to resize all images. Do this step in a seperate folder for PFP and projects
+6. If needed, Powershell + ffmpeg to resize all images. Do this step in a seperate folder for PFP and MPT/SPT only
+
+FOR DATA STRUCTURE LOOK-UP TABLE (Vscode)
+- For MP: `MPT_${sName}.webp` / `MPA_${sName}_${i}.webp`
