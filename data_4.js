@@ -3,7 +3,7 @@ const myData = {
     {
       name: "Test1",
       display_name: "A",
-      sID: 4021256,
+      sID: 11,
       specialization: "a",
       bio: "a",
       website: "a"
@@ -28,7 +28,7 @@ const myData = {
     {
       name: "MaiAnhVo",
       display_name: "Mai",
-      sID: 11,
+      sID: 44,
       specialization: "Design",
       bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum convallis nibh, id lobortis mi scelerisque in. Donec iaculis, lacus in convallis suscipit, diam lectus pellentesque massa, dignissim fermentum metus eros accumsan mi. Vestibulum sed hendrerit erat. Aliquam erat volutpat. Etiam et laoreet risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc lobortis id nibh ut ornare. Praesent id nisi ut libero tristique convallis. Vivamus lobortis viverra varius. Etiam molestie arcu dictum, egestas sem et, vehicula purus. ",
       showreel: "https://www.youtube.com/watch?v=7Y9rl_Uooak&list=RDZ_k0hvdXYjM&index=3"
@@ -36,9 +36,10 @@ const myData = {
   ],
   MP: [
     {
+      name: "Test1",
       title: "mp",
       representative: "Myself",
-      category: "Interactive",
+      category: "Interactive Installation",
       tagline: "a",
       description: "a",
       credits: "a",
@@ -46,18 +47,21 @@ const myData = {
       member_count: "3",
       mem3: 22,
       mem2: 33,
-      mem1: 4021256
+      mem1: 11
     },
     {
+      name: "Test2",
       title: "mp",
       representative: "A"
     },
     {
+      name: "Test3",
       title: "mp",
       representative: "A"
     },
     {
-      title: "MP",
+      name: "MaiAnhVo",
+      title: "Solo MP",
       representative: "Myself",
       category: "Interactive Installation",
       tagline: "\"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...\"",
@@ -65,13 +69,12 @@ const myData = {
       credits: "creds",
       add_count: "2",
       member_count: "3",
-      mem3: 11,
-      mem2: 22,
-      mem1: 33
+      mem1: 44
     }
   ],
   SP: [
     {
+      name: "Test1",
       title: "spa",
       is_group: "No",
       category: "Video",
@@ -79,9 +82,10 @@ const myData = {
       description: "b",
       add_count: "1",
       member_count: "1",
-      mem1: 4021256
+      mem1: 11
     },
     {
+      name: "Test2",
       title: "spb",
       is_group: "No",
       category: "UXUI",
@@ -92,6 +96,7 @@ const myData = {
       mem1: 22
     },
     {
+      name: "Test3",
       title: "spc",
       is_group: "No",
       category: "UXUI",
@@ -102,6 +107,7 @@ const myData = {
       mem1: 33
     },
     {
+      name: "MaiAnhVo",
       title: "SP",
       is_group: "No",
       category: "Audio Design",
@@ -110,7 +116,7 @@ const myData = {
       credits: "sp creds",
       add_count: 2,
       member_count: 1,
-      mem1: 11
+      mem1: 44
     }
   ]
 };

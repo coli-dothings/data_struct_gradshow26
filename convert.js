@@ -3,7 +3,7 @@ const fs = require("fs");
 const XLSX = require("xlsx");
 
 // Read the Excel 
-const workbook = XLSX.readFile("test_excel_2.xlsx"); 
+const workbook = XLSX.readFile("test_excel_3.xlsx"); 
 
 const allSheetsData = {};
 
@@ -24,7 +24,7 @@ jsFormatContent = jsFormatContent.replace(/"([^(^\"]*?)":/g, "\$1:");
 
 // Write to a JS file
 try {
-  fs.writeFileSync("data_3.js", `const myData = ${jsFormatContent};`);
+  fs.writeFileSync("data_4.js", `const myData = ${jsFormatContent};`);
   // catch error ensure Node does not BLOW UP the computer
 } catch (err) {
   console.error(err);

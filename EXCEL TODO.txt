@@ -7,7 +7,7 @@ EXCEL TODO
 
 IMAGE FILE TODO
 1. Download all images, keep folders seperate. 
-2. Powershell rename all before an underscore to unify format (seperate FOLDERS)
+2. Powershell rename all before an underscore to unify format (seperate FOLDERS) - Clean up required on MPA & SPA
 3. Copy all files to a singular folder
 4. Powershell to remove all spaces in name & lowercase
 5. Powershell + ffmpeg to convert PNG & JPEG to WEBP
