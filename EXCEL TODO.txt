@@ -7,7 +7,8 @@ EXCEL TODO
 
 DATA TODO
 . Find & replace: /r/n with <br>
-. Find & replace: Youtube links 
+. Find & replace: Youtube links
+Format: https://youtube.com/embed/...
 
 IMAGE FILE TODO
 1. Download all images, keep folders seperate. 
@@ -20,3 +21,20 @@ IMAGE FILE TODO
 
 FOR DATA STRUCTURE LOOK-UP TABLE (Vscode)
 - For MP: `MPT_${sName}.webp` / `MPA_${sName}_${i}.webp`
+
+
+Total: 14 showreel + 28 yt = 42
+
+Current: 36 + 6
+
+youtube.com/watch?v=   : 8
+youtu.be/  : 27
+Odd case: 1
+
+
+Person 16, Jolie Cao - showreel google drive
+Person 19, Kunzes Tara Dorji - changed to website
+MP 1, XiongYouhan - changed to link
+MP 16, JolieCao - changed to link
+SP 1, XiongYouhan - changed to link
+SP 18, EmmaChurch - changed to link

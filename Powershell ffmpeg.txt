@@ -8,11 +8,11 @@ Original: 26.2MB
 
 
 
-Powershell: Rename all files in folder before an underscore
-Get-ChildItem -File | Rename-Item -NewName { $_.Name -replace '^[^_]+', 'PFP' }
+Powershell: Rename all files in folder before the FINAL underscore
+Get-ChildItem -File | Rename-Item -NewName { $_.Name -replace '.*_(.*)', 'MPA_4_$1' }
 
 Powershell: Remove all spaces in file name
-Get-ChildItem -File | Rename-Item -NewName { $_.Name -replace ' ', '' }
+Get-ChildItem -File | Rename-Item -NewName { $_.Name -replace 'Lin,Zoe', 'LinZoe' }
 
 Powershell: lowercase all text
 Get-ChildItem -File | Rename-Item -NewName { $_.Name.ToLower() }
@@ -25,6 +25,17 @@ Get-ChildItem *.png | ForEach-Object {
 
 
 Powershell + ffmpeg: Change file to webp
-Get-ChildItem *.png | ForEach-Object { ffmpeg -i $_.FullName -c:v libwebp -q:v 75 ("$($_.BaseName).webp") }
 
-Do this for each file format: png, jpg, jpeg
+Get-ChildItem *.jpg | ForEach-Object { ffmpeg -i $_.FullName -c:v libwebp -q:v 75 ("$($_.BaseName).webp") }
+
+Do this for each file format: ALL DONE
+
+- Note: I deleted 1 file dupe file of myself + 1 dupe file from Santino
+
+
+IMG count: 
+64 MPA
+19 MPT
+31 PFP
+106 SPA
+30 SPT
