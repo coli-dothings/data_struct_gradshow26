@@ -1085,6 +1085,6 @@ const myData = {
 			yt: "https://youtu.be/P2e_cvhXD8k",
 			member_count: 1,
 			mem1: 4017248,
-		},
-	],
+		}
+	]
 };
